@@ -4,7 +4,7 @@
 #*
 #* Current file: submit.py
 #* About this file: Submission python script.
-#* 
+#*
 #***********************
 
 import urllib
@@ -24,14 +24,20 @@ class NullDevice:
   def write(self, s):
     pass
 
-def submit():   
+def submit():
   print '==\n== [sandbox] Submitting Solutions \n=='
-  
+
   (login, password) = loginPrompt()
+
+  login = 'zhuoyw@live.cn'
+  password = 'cd4FjbqhNT'
+
   if not login:
     print '!! Submission Cancelled'
     return
-  
+
+
+
   print '\n== Connecting to Coursera ... '
 
   # Part Identifier
@@ -103,8 +109,8 @@ def challengeResponse(email, passwd, challenge):
   strAnswer = ''
   for i in range(0, len(digest)):
     strAnswer = strAnswer + digest[i]
-  return strAnswer 
-  
+  return strAnswer
+
 def challenge_url():
   """Returns the challenge url."""
   return URL_BASE + URL + "/assignment/challenge"
@@ -133,11 +139,11 @@ def submitSolution(email_address, ch_resp, sid, output, state, ch_aux):
   result = 0
   return result, string
 
-## This collects the source code (just for logging purposes) 
+## This collects the source code (just for logging purposes)
 def source(partIdx):
   # open the file, get all lines
   f = open(outFiles[partIdx])
-  src = f.read() 
+  src = f.read()
   f.close()
   return src
 
@@ -153,9 +159,9 @@ URL_BASE = "https://class.coursera.org/"
 # the "Identifier" you used when creating the part
 partIds = ['mp2_create', 'mp2_delete', 'mp2_read', 'mp2_update']
 # used to generate readable run-time information for students
-partFriendlyNames = ['Create Test', 'Delete Test', 'Read Test', 'Update Test'] 
+partFriendlyNames = ['Create Test', 'Delete Test', 'Read Test', 'Update Test']
 # source files to collect (just for our records)
-outFiles = ['dbg.log', 'dbg.log', 'dbg.log', 'dbg.log'] 
+outFiles = ['dbg.log', 'dbg.log', 'dbg.log', 'dbg.log']
 
 submit()
 
