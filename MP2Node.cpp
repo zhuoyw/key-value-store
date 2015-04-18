@@ -4,7 +4,7 @@
  * DESCRIPTION: MP2Node class definition
  **********************************/
 #include "MP2Node.h"
-
+#define QUORUM 2
 /**
  * constructor
  */
@@ -15,6 +15,7 @@ MP2Node::MP2Node(Member *memberNode, Params *par, EmulNet * emulNet, Log * log, 
 	this->log = log;
 	ht = new HashTable();
 	this->memberNode->addr = *address;
+
 }
 
 /**
@@ -30,7 +31,7 @@ MP2Node::~MP2Node() {
  *
  * DESCRIPTION: This function does the following:
  * 				1) Gets the current membership list from the Membership Protocol (MP1Node)
- * 				   The membership list is returned as a vector of Nodes. See Node class in Node.h
+ * 				   The membership list is returned as a vector of Nodes. See Node class in Nodne.h
  * 				2) Constructs the ring based on the membership list
  * 				3) Calls the Stabilization Protocol
  */
@@ -51,12 +52,19 @@ void MP2Node::updateRing() {
 	 */
 	// Sort the list based on the hashCode
 	sort(curMemList.begin(), curMemList.end());
-
+	//if (curMemList != ring)
+	{
+		change = true;
+		ring = curMemList;
+	}
+	//else ring remians the same
 
 	/*
 	 * Step 3: Run the stabilization protocol IF REQUIRED
 	 */
 	// Run stabilization protocol if the hash table size is greater than zero and if there has been a changed in the ring
+	 if ((!ht->isEmpty()) && change)
+	 	stabilizationProtocol();
 }
 
 /**
@@ -98,6 +106,12 @@ size_t MP2Node::hashFunction(string key) {
 	return ret%RING_SIZE;
 }
 
+void MP2Node::printAddress(Address *addr)
+{
+    printf("%d.%d.%d.%d:%d \n",  addr->addr[0],addr->addr[1],addr->addr[2],
+                                                       addr->addr[3], *(short*)&addr->addr[4]) ;
+}
+
 /**
  * FUNCTION NAME: clientCreate
  *
@@ -111,12 +125,25 @@ void MP2Node::clientCreate(string key, string value) {
 	/*
 	 * Implement this
 	 */
+	Message msg_0 = Message(g_transID, memberNode->addr, CREATE, key, value, PRIMARY);
+	Message msg_1 = Message(g_transID, memberNode->addr, CREATE, key, value, SECONDARY);
+	Message msg_2 = Message(g_transID, memberNode->addr, CREATE, key, value, TERTIARY);
+	buff.push_back(Transaction(g_transID, CREATE, key, value));
+	g_transID += 1;
+	vector<Node> replica = findNodes(key);
+	//printAddress(&replica.at(0).nodeAddress);
+	//printAddress(&replica.at(1).nodeAddress);
+	//printAddress(&replica.at(2).nodeAddress);
+	emulNet->ENsend(&memberNode->addr, &replica.at(0).nodeAddress, msg_0.toString());
+	emulNet->ENsend(&memberNode->addr, &replica.at(1).nodeAddress, msg_1.toString());
+	emulNet->ENsend(&memberNode->addr, &replica.at(2).nodeAddress, msg_2.toString());
+	return;
 }
 
 /**
  * FUNCTION NAME: clientRead
  *
- * DESCRIPTION: client side READ API
+* DESCRIPTION: client side READ API
  * 				The function does the following:
  * 				1) Constructs the message
  * 				2) Finds the replicas of this key
@@ -126,6 +153,14 @@ void MP2Node::clientRead(string key){
 	/*
 	 * Implement this
 	 */
+	Message msg = Message(g_transID, memberNode->addr, READ, key);
+	buff.push_back(Transaction(g_transID, READ, key));
+	g_transID += 1;
+	vector<Node> replica = findNodes(key);
+	for (vector<Node>::iterator it = replica.begin(); it != replica.end(); ++it) {
+		emulNet->ENsend(&memberNode->addr, &it->nodeAddress, msg.toString());
+	}
+	return;
 }
 
 /**
@@ -141,6 +176,14 @@ void MP2Node::clientUpdate(string key, string value){
 	/*
 	 * Implement this
 	 */
+	Message msg = Message(g_transID, memberNode->addr, UPDATE, key, value);
+	buff.push_back(Transaction(g_transID, UPDATE, key, value));
+	g_transID += 1;
+	vector<Node> replica = findNodes(key);
+	for (vector<Node>::iterator it = replica.begin(); it != replica.end(); ++it) {
+		emulNet->ENsend(&memberNode->addr, &it->nodeAddress, msg.toString());
+	}
+	return;
 }
 
 /**
@@ -156,6 +199,14 @@ void MP2Node::clientDelete(string key){
 	/*
 	 * Implement this
 	 */
+	Message msg = Message(g_transID, memberNode->addr, DELETE, key);
+	buff.push_back(Transaction(g_transID, DELETE, key));
+	g_transID += 1;
+	vector<Node> replica = findNodes(key);
+	for (vector<Node>::iterator it = replica.begin(); it != replica.end(); ++it) {
+		emulNet->ENsend(&memberNode->addr, &it->nodeAddress, msg.toString());
+	}
+	return;
 }
 
 /**
@@ -171,6 +222,7 @@ bool MP2Node::createKeyValue(string key, string value, ReplicaType replica) {
 	 * Implement this
 	 */
 	// Insert key, value, replicaType into the hash table
+	return ht->create(key, value);
 }
 
 /**
@@ -186,6 +238,7 @@ string MP2Node::readKey(string key) {
 	 * Implement this
 	 */
 	// Read key from local hash table and return value
+	 return ht->read(key);
 }
 
 /**
@@ -201,6 +254,7 @@ bool MP2Node::updateKeyValue(string key, string value, ReplicaType replica) {
 	 * Implement this
 	 */
 	// Update key in local hash table and return true or false
+	 return ht->update(key, value);
 }
 
 /**
@@ -216,6 +270,7 @@ bool MP2Node::deletekey(string key) {
 	 * Implement this
 	 */
 	// Delete the key from the local hash table
+	return ht->deleteKey(key);
 }
 
 /**
@@ -246,18 +301,140 @@ void MP2Node::checkMessages() {
 		size = memberNode->mp2q.front().size;
 		memberNode->mp2q.pop();
 
-		string message(data, data + size);
+		string msg_string(data, data + size);
 
 		/*
 		 * Handle the message types here
 		 */
+		Message recv_msg = Message(msg_string);
+		bool success;
+		switch (recv_msg.type) {
+			case CREATE:
+			{
+				success = createKeyValue(recv_msg.key, recv_msg.value, recv_msg.replica);
+				if (success)
+					log->logCreateSuccess(&memberNode->addr, false, recv_msg.transID, recv_msg.key, recv_msg.value);
+				else
+					log->logCreateFail(&memberNode->addr, false, recv_msg.transID, recv_msg.key, recv_msg.value);
+				//send reply
+				Message send_msg = Message(recv_msg.transID, memberNode->addr, REPLY, success);
+				emulNet->ENsend(&memberNode->addr, &recv_msg.fromAddr, send_msg.toString());
+				break;
+			}
+			case UPDATE:
+			{
+				success = updateKeyValue(recv_msg.key, recv_msg.value, recv_msg.replica);
+				if (success)
+					log->logUpdateSuccess(&memberNode->addr, false, recv_msg.transID, recv_msg.key, recv_msg.value);
+				else
+					log->logUpdateFail(&memberNode->addr, false, recv_msg.transID, recv_msg.key, recv_msg.value);
+				//send reply
+				Message send_msg = Message(recv_msg.transID, memberNode->addr, REPLY, success);
+				emulNet->ENsend(&memberNode->addr, &recv_msg.fromAddr, send_msg.toString());
+				break;
+			}
+			case READ:
+			{
+				string ret = readKey(recv_msg.key);
+				if ("" == ret)
+					log->logReadSuccess(&memberNode->addr, false, recv_msg.transID, recv_msg.key, recv_msg.value);
+				else
+					log->logReadFail(&memberNode->addr, false, recv_msg.transID, recv_msg.key);
+				//send read reply
+				Message send_msg = Message(recv_msg.transID, memberNode->addr, ret);
+				emulNet->ENsend(&memberNode->addr, &recv_msg.fromAddr, send_msg.toString());
+				break;
+			}
+			case DELETE:
+			{
+				success = deletekey(recv_msg.key);
+				if (success)
+					log->logDeleteSuccess(&memberNode->addr, false, recv_msg.transID, recv_msg.key);
+				else
+					log->logDeleteFail(&memberNode->addr, false, recv_msg.transID, recv_msg.key);
+				//send reply
+				Message send_msg = Message(recv_msg.transID, memberNode->addr, REPLY, success);
+				emulNet->ENsend(&memberNode->addr, &recv_msg.fromAddr, send_msg.toString());
+				break;
+			}
+			case REPLY:
+			{
+				for (list<Transaction>::iterator it = buff.begin(); it != buff.end(); ++it) {
+					if (it->transID_ == recv_msg.transID) {
+						if (it->isStart())
+							it->startCount();
+						if (recv_msg.success) {
+							it->increCount();
+						}
+						break;
+					}
+				}
+				break;
+			}
+			case READREPLY:
+			{
+				for (list<Transaction>::iterator it = buff.begin(); it != buff.end(); ++it) {
+					if (it->transID_ == recv_msg.transID) {
+						if (it->isStart())
+							it->startCount();
+						if (recv_msg.success) {
+							it->increCount();
+						}
+						break;
+					}
+				}
+				break;
+			}
+		}
 
 	}
-
 	/*
 	 * This function should also ensure all READ and UPDATE operation
 	 * get QUORUM replies
 	 */
+	for (list<Transaction>::iterator it = buff.begin(); it != buff.end(); ) {
+		if (it->count_ == -1) {
+			it++;
+		} else if (it->count_ >= QUORUM) {
+			switch (it->type_) {
+				case CREATE:
+					log->logCreateSuccess(&memberNode->addr, true, it->transID_, it->key_, it->value_);
+					break;
+				case UPDATE:
+					log->logUpdateSuccess(&memberNode->addr, true, it->transID_, it->key_, it->value_);
+					break;
+				case READ:
+					log->logReadSuccess(&memberNode->addr, true, it->transID_, it->key_, it->value_);
+					break;
+				case DELETE:
+					log->logDeleteSuccess(&memberNode->addr, true, it->transID_, it->key_);
+					break;
+				default:
+					//error
+					break;
+			}
+			it = buff.erase(it);
+		} else { //if (it->count_ < QUORUM)
+			switch (it->type_) {
+				case CREATE:
+					log->logCreateFail(&memberNode->addr, true, it->transID_, it->key_, it->value_);
+					break;
+				case UPDATE:
+					log->logUpdateFail(&memberNode->addr, true, it->transID_, it->key_, it->value_);
+					break;
+				case READ:
+					log->logReadFail(&memberNode->addr, true, it->transID_, it->key_);
+					break;
+				case DELETE:
+					log->logDeleteFail(&memberNode->addr, true, it->transID_, it->key_);
+					break;
+				default:
+					//error
+					break;
+			}
+			it = buff.erase(it);
+		}
+	}
 }
 
 /**
@@ -278,7 +455,7 @@ vector<Node> MP2Node::findNodes(string key) {
 		}
 		else {
 			// go through the ring until pos <= node
-			for (int i=1; i<ring.size(); i++){
+			for (size_t i=1; i<ring.size(); i++){
 				Node addr = ring.at(i);
 				if (pos <= addr.getHashCode()) {
 					addr_vec.emplace_back(addr);
@@ -328,4 +505,5 @@ void MP2Node::stabilizationProtocol() {
 	/*
 	 * Implement this
 	 */
+	return;
 }

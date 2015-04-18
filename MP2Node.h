@@ -19,6 +19,29 @@
 #include "Message.h"
 #include "Queue.h"
 
+#define ABORT
+class Transaction {
+public:
+	int transID_;
+	int count_;
+	MessageType type_;
+	string key_;
+	string value_;
+	Transaction(int transID, MessageType type) : transID_(transID), count_(-1), type_(type) {
+	}
+	Transaction(int transID, MessageType type, string key, string value = "") : transID_(transID), count_(-1), type_(type), key_(key), value_(value) {
+	}
+	void increCount() {
+		count_ += 1;
+	}
+	void startCount() {
+		count_ = 0;
+	}
+	bool isStart() {
+		return -1 == count_;
+	}
+};
+
 /**
  * CLASS NAME: MP2Node
  *
@@ -47,6 +70,8 @@ private:
 	EmulNet * emulNet;
 	// Object of Log
 	Log * log;
+	// buff for
+	list<Transaction> buff;
 
 public:
 	MP2Node(Member *memberNode, Params *par, EmulNet *emulNet, Log *log, Address *addressOfMember);
@@ -87,6 +112,8 @@ public:
 
 	// stabilization protocol - handle multiple failures
 	void stabilizationProtocol();
+
+	void printAddress(Address *addr);
 
 	~MP2Node();
 };

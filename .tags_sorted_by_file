@@ -1,0 +1,364 @@
+Application	Application.cpp	/^Application::Application(char *infile) {$/;"	f	class:Application
+deleteTest	Application.cpp	/^void Application::deleteTest() {$/;"	f	class:Application
+fail	Application.cpp	/^void Application::fail() {$/;"	f	class:Application
+findARandomNodeThatIsAlive	Application.cpp	/^int Application::findARandomNodeThatIsAlive() {$/;"	f	class:Application
+getjoinaddr	Application.cpp	/^Address Application::getjoinaddr(void){$/;"	f	class:Application
+handler	Application.cpp	/^void handler(int sig) {$/;"	f
+initTestKVPairs	Application.cpp	/^void Application::initTestKVPairs() {$/;"	f	class:Application
+insertTestKVPairs	Application.cpp	/^void Application::insertTestKVPairs() {$/;"	f	class:Application
+main	Application.cpp	/^int main(int argc, char *argv[]) {$/;"	f
+mp1Run	Application.cpp	/^void Application::mp1Run() {$/;"	f	class:Application
+mp2Run	Application.cpp	/^void Application::mp2Run() {$/;"	f	class:Application
+readTest	Application.cpp	/^void Application::readTest() {$/;"	f	class:Application
+run	Application.cpp	/^int Application::run()$/;"	f	class:Application
+updateTest	Application.cpp	/^void Application::updateTest() {$/;"	f	class:Application
+~Application	Application.cpp	/^Application::~Application() {$/;"	f	class:Application
+ARGS_COUNT	Application.h	33;"	d
+Application	Application.h	/^class Application{$/;"	c
+FIRST_FAIL_TIME	Application.h	38;"	d
+INSERT_TIME	Application.h	35;"	d
+JOINADDR	Application.h	/^	char JOINADDR[30];$/;"	m	class:Application
+KEY_LENGTH	Application.h	42;"	d
+LAST_FAIL_TIME	Application.h	39;"	d
+NUMBER_OF_INSERTS	Application.h	41;"	d
+RF	Application.h	40;"	d
+STABILIZE_TIME	Application.h	37;"	d
+TEST_TIME	Application.h	36;"	d
+TOTAL_RUNNING_TIME	Application.h	34;"	d
+_APPLICATION_H_	Application.h	8;"	d
+alphanum	Application.h	/^static const char alphanum[] =$/;"	v
+en	Application.h	/^	EmulNet *en;$/;"	m	class:Application
+en1	Application.h	/^	EmulNet *en1;$/;"	m	class:Application
+log	Application.h	/^    Log *log;$/;"	m	class:Application
+mp1	Application.h	/^	MP1Node **mp1;$/;"	m	class:Application
+mp2	Application.h	/^	MP2Node **mp2;$/;"	m	class:Application
+nodeCount	Application.h	/^int nodeCount = 0;$/;"	v
+par	Application.h	/^	Params *par;$/;"	m	class:Application
+testKVPairs	Application.h	/^	map<string, string> testKVPairs;$/;"	m	class:Application
+ENcleanup	EmulNet.cpp	/^int EmulNet::ENcleanup() {$/;"	f	class:EmulNet
+ENinit	EmulNet.cpp	/^void *EmulNet::ENinit(Address *myaddr, short port) {$/;"	f	class:EmulNet
+ENrecv	EmulNet.cpp	/^int EmulNet::ENrecv(Address *myaddr, int (* enq)(void *, char *, int), struct timeval *t, int times, void *queue){$/;"	f	class:EmulNet
+ENsend	EmulNet.cpp	/^int EmulNet::ENsend(Address *myaddr, Address *toaddr, char *data, int size) {$/;"	f	class:EmulNet
+ENsend	EmulNet.cpp	/^int EmulNet::ENsend(Address *myaddr, Address *toaddr, string data) {$/;"	f	class:EmulNet
+EmulNet	EmulNet.cpp	/^EmulNet::EmulNet(EmulNet &anotherEmulNet) {$/;"	f	class:EmulNet
+EmulNet	EmulNet.cpp	/^EmulNet::EmulNet(Params *p)$/;"	f	class:EmulNet
+operator =	EmulNet.cpp	/^EmulNet& EmulNet::operator =(EmulNet &anotherEmulNet) {$/;"	f	class:EmulNet
+~EmulNet	EmulNet.cpp	/^EmulNet::~EmulNet() {}$/;"	f	class:EmulNet
+EM	EmulNet.h	/^	EM() {}$/;"	f	class:EM
+EM	EmulNet.h	/^class EM {$/;"	c
+ENBUFFSIZE	EmulNet.h	12;"	d
+EmulNet	EmulNet.h	/^class EmulNet$/;"	c
+MAX_NODES	EmulNet.h	10;"	d
+MAX_TIME	EmulNet.h	11;"	d
+_EMULNET_H_	EmulNet.h	8;"	d
+buff	EmulNet.h	/^	en_msg* buff[ENBUFFSIZE];$/;"	m	class:EM
+currbuffsize	EmulNet.h	/^	int currbuffsize;$/;"	m	class:EM
+emulnet	EmulNet.h	/^	EM emulnet;$/;"	m	class:EmulNet
+enInited	EmulNet.h	/^	int enInited;$/;"	m	class:EmulNet
+en_msg	EmulNet.h	/^typedef struct en_msg {$/;"	s
+en_msg	EmulNet.h	/^}en_msg;$/;"	t	typeref:struct:en_msg
+firsteltindex	EmulNet.h	/^	int firsteltindex;$/;"	m	class:EM
+from	EmulNet.h	/^	Address from;$/;"	m	struct:en_msg
+getCurrBuffSize	EmulNet.h	/^	int getCurrBuffSize() {$/;"	f	class:EM
+getFirstEltIndex	EmulNet.h	/^	int getFirstEltIndex() {$/;"	f	class:EM
+getNextId	EmulNet.h	/^	int getNextId() {$/;"	f	class:EM
+nextid	EmulNet.h	/^	int nextid;$/;"	m	class:EM
+operator =	EmulNet.h	/^	EM& operator = (EM &anotherEM) {$/;"	f	class:EM
+par	EmulNet.h	/^	Params* par;$/;"	m	class:EmulNet
+recv_msgs	EmulNet.h	/^	int recv_msgs[MAX_NODES + 1][MAX_TIME];$/;"	m	class:EmulNet
+sent_msgs	EmulNet.h	/^	int sent_msgs[MAX_NODES + 1][MAX_TIME];$/;"	m	class:EmulNet
+setFirstEltIndex	EmulNet.h	/^	void setFirstEltIndex(int firsteltindex) {$/;"	f	class:EM
+setNextId	EmulNet.h	/^	void setNextId(int nextid) {$/;"	f	class:EM
+settCurrBuffSize	EmulNet.h	/^	void settCurrBuffSize(int currbuffsize) {$/;"	f	class:EM
+size	EmulNet.h	/^	int size;$/;"	m	struct:en_msg
+to	EmulNet.h	/^	Address to;$/;"	m	struct:en_msg
+~EM	EmulNet.h	/^	virtual ~EM() {}$/;"	f	class:EM
+Entry	Entry.cpp	/^Entry::Entry(string _value, int _timestamp, ReplicaType _replica){$/;"	f	class:Entry
+Entry	Entry.cpp	/^Entry::Entry(string entry){$/;"	f	class:Entry
+convertToString	Entry.cpp	/^string Entry::convertToString() {$/;"	f	class:Entry
+Entry	Entry.h	/^class Entry{$/;"	c
+delimiter	Entry.h	/^	string delimiter;$/;"	m	class:Entry
+replica	Entry.h	/^	ReplicaType replica;$/;"	m	class:Entry
+timestamp	Entry.h	/^	int timestamp;$/;"	m	class:Entry
+value	Entry.h	/^	string value;$/;"	m	class:Entry
+HashTable	HashTable.cpp	/^HashTable::HashTable() {}$/;"	f	class:HashTable
+clear	HashTable.cpp	/^void HashTable::clear() {$/;"	f	class:HashTable
+count	HashTable.cpp	/^unsigned long HashTable::count(string key) {$/;"	f	class:HashTable
+create	HashTable.cpp	/^bool HashTable::create(string key, string value) {$/;"	f	class:HashTable
+currentSize	HashTable.cpp	/^unsigned long HashTable::currentSize() {$/;"	f	class:HashTable
+deleteKey	HashTable.cpp	/^bool HashTable::deleteKey(string key) {$/;"	f	class:HashTable
+isEmpty	HashTable.cpp	/^bool HashTable::isEmpty() {$/;"	f	class:HashTable
+read	HashTable.cpp	/^string HashTable::read(string key) {$/;"	f	class:HashTable
+update	HashTable.cpp	/^bool HashTable::update(string key, string newValue) {$/;"	f	class:HashTable
+~HashTable	HashTable.cpp	/^HashTable::~HashTable() {}$/;"	f	class:HashTable
+HASHTABLE_H_	HashTable.h	8;"	d
+HashTable	HashTable.h	/^class HashTable {$/;"	c
+hashTable	HashTable.h	/^	map<string, string> hashTable;$/;"	m	class:HashTable
+contains	KVStoreGrader.sh	/^function contains () {$/;"	f
+LOG	Log.cpp	/^void Log::LOG(Address *addr, const char * str, ...) {$/;"	f	class:Log
+Log	Log.cpp	/^Log::Log(Params *p) {$/;"	f	class:Log
+Log	Log.cpp	/^Log::Log(const Log &anotherLog) {$/;"	f	class:Log
+logCreateFail	Log.cpp	/^void Log::logCreateFail(Address * address, bool isCoordinator, int transID, string key, string value){$/;"	f	class:Log
+logCreateSuccess	Log.cpp	/^void Log::logCreateSuccess(Address * address, bool isCoordinator, int transID, string key, string value){$/;"	f	class:Log
+logDeleteFail	Log.cpp	/^void Log::logDeleteFail(Address * address, bool isCoordinator, int transID, string key){$/;"	f	class:Log
+logDeleteSuccess	Log.cpp	/^void Log::logDeleteSuccess(Address * address, bool isCoordinator, int transID, string key){$/;"	f	class:Log
+logNodeAdd	Log.cpp	/^void Log::logNodeAdd(Address *thisNode, Address *addedAddr) {$/;"	f	class:Log
+logNodeRemove	Log.cpp	/^void Log::logNodeRemove(Address *thisNode, Address *removedAddr) {$/;"	f	class:Log
+logReadFail	Log.cpp	/^void Log::logReadFail(Address * address, bool isCoordinator, int transID, string key){$/;"	f	class:Log
+logReadSuccess	Log.cpp	/^void Log::logReadSuccess(Address * address, bool isCoordinator, int transID, string key, string value){$/;"	f	class:Log
+logUpdateFail	Log.cpp	/^void Log::logUpdateFail(Address * address, bool isCoordinator, int transID, string key, string newValue){$/;"	f	class:Log
+logUpdateSuccess	Log.cpp	/^void Log::logUpdateSuccess(Address * address, bool isCoordinator, int transID, string key, string newValue){$/;"	f	class:Log
+operator =	Log.cpp	/^Log& Log::operator = (const Log& anotherLog) {$/;"	f	class:Log
+~Log	Log.cpp	/^Log::~Log() {}$/;"	f	class:Log
+DBG_LOG	Log.h	20;"	d
+Log	Log.h	/^class Log{$/;"	c
+MAGIC_NUMBER	Log.h	19;"	d
+MAXWRITES	Log.h	18;"	d
+STATS_LOG	Log.h	21;"	d
+_LOG_H_	Log.h	8;"	d
+firstTime	Log.h	/^	bool firstTime;$/;"	m	class:Log
+par	Log.h	/^	Params *par;$/;"	m	class:Log
+MP1Node	MP1Node.cpp	/^MP1Node::MP1Node(Member *member, Params *params, EmulNet *emul, Log *log, Address *address) {$/;"	f	class:MP1Node
+addMemberEntry	MP1Node.cpp	/^void MP1Node::addMemberEntry(int id, short port, long heartbeat) {$/;"	f	class:MP1Node
+checkMessages	MP1Node.cpp	/^void MP1Node::checkMessages() {$/;"	f	class:MP1Node
+enqueueWrapper	MP1Node.cpp	/^int MP1Node::enqueueWrapper(void *env, char *buff, int size) {$/;"	f	class:MP1Node
+findMemberEntry	MP1Node.cpp	/^bool MP1Node::findMemberEntry(int id, short port) {$/;"	f	class:MP1Node
+finishUpThisNode	MP1Node.cpp	/^int MP1Node::finishUpThisNode(){$/;"	f	class:MP1Node
+getJoinAddress	MP1Node.cpp	/^Address MP1Node::getJoinAddress() {$/;"	f	class:MP1Node
+getid	MP1Node.cpp	/^int MP1Node::getid(Address* addr) {$/;"	f	class:MP1Node
+getport	MP1Node.cpp	/^short MP1Node::getport(Address* addr) {$/;"	f	class:MP1Node
+initMemberListTable	MP1Node.cpp	/^void MP1Node::initMemberListTable(Member *memberNode) {$/;"	f	class:MP1Node
+initThisNode	MP1Node.cpp	/^int MP1Node::initThisNode() {$/;"	f	class:MP1Node
+introduceSelfToGroup	MP1Node.cpp	/^int MP1Node::introduceSelfToGroup(Address *joinaddr) {$/;"	f	class:MP1Node
+isNullAddress	MP1Node.cpp	/^int MP1Node::isNullAddress(Address *addr) {$/;"	f	class:MP1Node
+makeAddress	MP1Node.cpp	/^void MP1Node::makeAddress(Address* addr, int id, short port) {$/;"	f	class:MP1Node
+nodeLoop	MP1Node.cpp	/^void MP1Node::nodeLoop() {$/;"	f	class:MP1Node
+nodeLoopOps	MP1Node.cpp	/^void MP1Node::nodeLoopOps() {$/;"	f	class:MP1Node
+nodeStart	MP1Node.cpp	/^void MP1Node::nodeStart(char *servaddrstr, short servport) {$/;"	f	class:MP1Node
+printAddress	MP1Node.cpp	/^void MP1Node::printAddress(Address *addr)$/;"	f	class:MP1Node
+recvCallBack	MP1Node.cpp	/^bool MP1Node::recvCallBack(void *env, char *data, int size ) {$/;"	f	class:MP1Node
+recvLoop	MP1Node.cpp	/^int MP1Node::recvLoop() {$/;"	f	class:MP1Node
+sendMemberList	MP1Node.cpp	/^void MP1Node::sendMemberList(Address* addr, MsgTypes msgtype)$/;"	f	class:MP1Node
+updateMemberEntry	MP1Node.cpp	/^void MP1Node::updateMemberEntry(int id, short port, long heartbeat) {$/;"	f	class:MP1Node
+~MP1Node	MP1Node.cpp	/^MP1Node::~MP1Node() {}$/;"	f	class:MP1Node
+GOSSIP	MP1Node.h	/^    GOSSIP$/;"	e	enum:MsgTypes
+JOINREP	MP1Node.h	/^    JOINREP,$/;"	e	enum:MsgTypes
+JOINREQ	MP1Node.h	/^    JOINREQ,$/;"	e	enum:MsgTypes
+MP1Node	MP1Node.h	/^class MP1Node {$/;"	c
+MessageHdr	MP1Node.h	/^typedef struct MessageHdr {$/;"	s
+MessageHdr	MP1Node.h	/^}MessageHdr;$/;"	t	typeref:struct:MessageHdr
+MsgTypes	MP1Node.h	/^enum MsgTypes{$/;"	g
+NULLADDR	MP1Node.h	/^	char NULLADDR[6];$/;"	m	class:MP1Node
+TFAIL	MP1Node.h	22;"	d
+TREMOVE	MP1Node.h	21;"	d
+_MP1NODE_H_	MP1Node.h	9;"	d
+emulNet	MP1Node.h	/^	EmulNet *emulNet;$/;"	m	class:MP1Node
+getMemberNode	MP1Node.h	/^	Member * getMemberNode() {$/;"	f	class:MP1Node
+log	MP1Node.h	/^	Log *log;$/;"	m	class:MP1Node
+memberNode	MP1Node.h	/^	Member *memberNode;$/;"	m	class:MP1Node
+msgType	MP1Node.h	/^	enum MsgTypes msgType;$/;"	m	struct:MessageHdr	typeref:enum:MessageHdr::MsgTypes
+par	MP1Node.h	/^	Params *par;$/;"	m	class:MP1Node
+MP2Node	MP2Node.cpp	/^MP2Node::MP2Node(Member *memberNode, Params *par, EmulNet * emulNet, Log * log, Address * address) {$/;"	f	class:MP2Node
+checkMessages	MP2Node.cpp	/^void MP2Node::checkMessages() {$/;"	f	class:MP2Node
+clientCreate	MP2Node.cpp	/^void MP2Node::clientCreate(string key, string value) {$/;"	f	class:MP2Node
+clientDelete	MP2Node.cpp	/^void MP2Node::clientDelete(string key){$/;"	f	class:MP2Node
+clientRead	MP2Node.cpp	/^void MP2Node::clientRead(string key){$/;"	f	class:MP2Node
+clientUpdate	MP2Node.cpp	/^void MP2Node::clientUpdate(string key, string value){$/;"	f	class:MP2Node
+createKeyValue	MP2Node.cpp	/^bool MP2Node::createKeyValue(string key, string value, ReplicaType replica) {$/;"	f	class:MP2Node
+deletekey	MP2Node.cpp	/^bool MP2Node::deletekey(string key) {$/;"	f	class:MP2Node
+enqueueWrapper	MP2Node.cpp	/^int MP2Node::enqueueWrapper(void *env, char *buff, int size) {$/;"	f	class:MP2Node
+findNodes	MP2Node.cpp	/^vector<Node> MP2Node::findNodes(string key) {$/;"	f	class:MP2Node
+getMembershipList	MP2Node.cpp	/^vector<Node> MP2Node::getMembershipList() {$/;"	f	class:MP2Node
+hashFunction	MP2Node.cpp	/^size_t MP2Node::hashFunction(string key) {$/;"	f	class:MP2Node
+readKey	MP2Node.cpp	/^string MP2Node::readKey(string key) {$/;"	f	class:MP2Node
+recvLoop	MP2Node.cpp	/^bool MP2Node::recvLoop() {$/;"	f	class:MP2Node
+stabilizationProtocol	MP2Node.cpp	/^void MP2Node::stabilizationProtocol() {$/;"	f	class:MP2Node
+updateKeyValue	MP2Node.cpp	/^bool MP2Node::updateKeyValue(string key, string value, ReplicaType replica) {$/;"	f	class:MP2Node
+updateRing	MP2Node.cpp	/^void MP2Node::updateRing() {$/;"	f	class:MP2Node
+~MP2Node	MP2Node.cpp	/^MP2Node::~MP2Node() {$/;"	f	class:MP2Node
+MP2NODE_H_	MP2Node.h	8;"	d
+MP2Node	MP2Node.h	/^class MP2Node {$/;"	c
+emulNet	MP2Node.h	/^	EmulNet * emulNet;$/;"	m	class:MP2Node
+getMemberNode	MP2Node.h	/^	Member * getMemberNode() {$/;"	f	class:MP2Node
+hasMyReplicas	MP2Node.h	/^	vector<Node> hasMyReplicas;$/;"	m	class:MP2Node
+haveReplicasOf	MP2Node.h	/^	vector<Node> haveReplicasOf;$/;"	m	class:MP2Node
+ht	MP2Node.h	/^	HashTable * ht;$/;"	m	class:MP2Node
+log	MP2Node.h	/^	Log * log;$/;"	m	class:MP2Node
+memberNode	MP2Node.h	/^	Member *memberNode;$/;"	m	class:MP2Node
+par	MP2Node.h	/^	Params *par;$/;"	m	class:MP2Node
+ring	MP2Node.h	/^	vector<Node> ring;$/;"	m	class:MP2Node
+Address	Member.cpp	/^Address::Address(const Address &anotherAddress) {$/;"	f	class:Address
+Member	Member.cpp	/^Member::Member(const Member &anotherMember) {$/;"	f	class:Member
+MemberListEntry	Member.cpp	/^MemberListEntry::MemberListEntry(const MemberListEntry &anotherMLE) {$/;"	f	class:MemberListEntry
+MemberListEntry	Member.cpp	/^MemberListEntry::MemberListEntry(int id, short port): id(id), port(port) {}$/;"	f	class:MemberListEntry
+MemberListEntry	Member.cpp	/^MemberListEntry::MemberListEntry(int id, short port, long heartbeat, long timestamp): id(id), port(port), heartbeat(heartbeat), timestamp(timestamp) {}$/;"	f	class:MemberListEntry
+getheartbeat	Member.cpp	/^long MemberListEntry::getheartbeat() {$/;"	f	class:MemberListEntry
+getid	Member.cpp	/^int MemberListEntry::getid() {$/;"	f	class:MemberListEntry
+getport	Member.cpp	/^short MemberListEntry::getport() {$/;"	f	class:MemberListEntry
+gettimestamp	Member.cpp	/^long MemberListEntry::gettimestamp() {$/;"	f	class:MemberListEntry
+operator =	Member.cpp	/^Address& Address::operator =(const Address& anotherAddress) {$/;"	f	class:Address
+operator =	Member.cpp	/^Member& Member::operator =(const Member& anotherMember) {$/;"	f	class:Member
+operator =	Member.cpp	/^MemberListEntry& MemberListEntry::operator =(const MemberListEntry &anotherMLE) {$/;"	f	class:MemberListEntry
+operator ==	Member.cpp	/^bool Address::operator ==(const Address& anotherAddress) {$/;"	f	class:Address
+q_elt	Member.cpp	/^q_elt::q_elt(void *elt, int size): elt(elt), size(size) {}$/;"	f	class:q_elt
+setheartbeat	Member.cpp	/^void MemberListEntry::setheartbeat(long hearbeat) {$/;"	f	class:MemberListEntry
+setid	Member.cpp	/^void MemberListEntry::setid(int id) {$/;"	f	class:MemberListEntry
+setport	Member.cpp	/^void MemberListEntry::setport(short port) {$/;"	f	class:MemberListEntry
+settimestamp	Member.cpp	/^void MemberListEntry::settimestamp(long timestamp) {$/;"	f	class:MemberListEntry
+Address	Member.h	/^	Address() {}$/;"	f	class:Address
+Address	Member.h	/^	Address(string address) {$/;"	f	class:Address
+Address	Member.h	/^class Address {$/;"	c
+MEMBER_H_	Member.h	8;"	d
+Member	Member.h	/^	Member(): inited(false), inGroup(false), bFailed(false), nnb(0), heartbeat(0), pingCounter(0), timeOutCounter(0) {}$/;"	f	class:Member
+Member	Member.h	/^class Member {$/;"	c
+MemberListEntry	Member.h	/^	MemberListEntry(): id(0), port(0), heartbeat(0), timestamp(0) {}$/;"	f	class:MemberListEntry
+MemberListEntry	Member.h	/^class MemberListEntry {$/;"	c
+addr	Member.h	/^	Address addr;$/;"	m	class:Member
+addr	Member.h	/^	char addr[6];$/;"	m	class:Address
+bFailed	Member.h	/^	bool bFailed;$/;"	m	class:Member
+elt	Member.h	/^	void *elt;$/;"	m	class:q_elt
+getAddress	Member.h	/^	string getAddress() {$/;"	f	class:Address
+heartbeat	Member.h	/^	long heartbeat;$/;"	m	class:Member
+heartbeat	Member.h	/^	long heartbeat;$/;"	m	class:MemberListEntry
+id	Member.h	/^	int id;$/;"	m	class:MemberListEntry
+inGroup	Member.h	/^	bool inGroup;$/;"	m	class:Member
+init	Member.h	/^	void init() {$/;"	f	class:Address
+inited	Member.h	/^	bool inited;$/;"	m	class:Member
+memberList	Member.h	/^	vector<MemberListEntry> memberList;$/;"	m	class:Member
+mp1q	Member.h	/^	queue<q_elt> mp1q;$/;"	m	class:Member
+mp2q	Member.h	/^	queue<q_elt> mp2q;$/;"	m	class:Member
+myPos	Member.h	/^	vector<MemberListEntry>::iterator myPos;$/;"	m	class:Member
+nnb	Member.h	/^	int nnb;$/;"	m	class:Member
+pingCounter	Member.h	/^	int pingCounter;$/;"	m	class:Member
+port	Member.h	/^	short port;$/;"	m	class:MemberListEntry
+q_elt	Member.h	/^class q_elt {$/;"	c
+size	Member.h	/^	int size;$/;"	m	class:q_elt
+timeOutCounter	Member.h	/^	int timeOutCounter;$/;"	m	class:Member
+timestamp	Member.h	/^	long timestamp;$/;"	m	class:MemberListEntry
+~Member	Member.h	/^	virtual ~Member() {}$/;"	f	class:Member
+Message	Message.cpp	/^Message::Message(const Message& anotherMessage) {$/;"	f	class:Message
+Message	Message.cpp	/^Message::Message(int _transID, Address _fromAddr, MessageType _type, bool _success){$/;"	f	class:Message
+Message	Message.cpp	/^Message::Message(int _transID, Address _fromAddr, MessageType _type, string _key){$/;"	f	class:Message
+Message	Message.cpp	/^Message::Message(int _transID, Address _fromAddr, MessageType _type, string _key, string _value){$/;"	f	class:Message
+Message	Message.cpp	/^Message::Message(int _transID, Address _fromAddr, MessageType _type, string _key, string _value, ReplicaType _replica){$/;"	f	class:Message
+Message	Message.cpp	/^Message::Message(int _transID, Address _fromAddr, string _value){$/;"	f	class:Message
+Message	Message.cpp	/^Message::Message(string message){$/;"	f	class:Message
+operator =	Message.cpp	/^Message& Message::operator =(const Message& anotherMessage) {$/;"	f	class:Message
+toString	Message.cpp	/^string Message::toString(){$/;"	f	class:Message
+MESSAGE_H_	Message.h	7;"	d
+Message	Message.h	/^class Message{$/;"	c
+delimiter	Message.h	/^	string delimiter;$/;"	m	class:Message
+fromAddr	Message.h	/^	Address fromAddr;$/;"	m	class:Message
+key	Message.h	/^	string key;$/;"	m	class:Message
+replica	Message.h	/^	ReplicaType replica;$/;"	m	class:Message
+success	Message.h	/^	bool success; \/\/ success or not $/;"	m	class:Message
+transID	Message.h	/^	int transID;$/;"	m	class:Message
+type	Message.h	/^	MessageType type;$/;"	m	class:Message
+value	Message.h	/^	string value;$/;"	m	class:Message
+Node	Node.cpp	/^Node::Node() {}$/;"	f	class:Node
+Node	Node.cpp	/^Node::Node(Address address) {$/;"	f	class:Node
+Node	Node.cpp	/^Node::Node(const Node& another) {$/;"	f	class:Node
+computeHashCode	Node.cpp	/^void Node::computeHashCode() {$/;"	f	class:Node
+getAddress	Node.cpp	/^Address * Node::getAddress() {$/;"	f	class:Node
+getHashCode	Node.cpp	/^size_t Node::getHashCode() {$/;"	f	class:Node
+operator <	Node.cpp	/^bool Node::operator < (const Node& another) const {$/;"	f	class:Node
+operator =	Node.cpp	/^Node& Node::operator=(const Node& another) {$/;"	f	class:Node
+setAddress	Node.cpp	/^void Node::setAddress(Address address) {$/;"	f	class:Node
+setHashCode	Node.cpp	/^void Node::setHashCode(size_t hashCode) {$/;"	f	class:Node
+~Node	Node.cpp	/^Node::~Node() {}$/;"	f	class:Node
+NODE_H_	Node.h	8;"	d
+Node	Node.h	/^class Node {$/;"	c
+hashFunc	Node.h	/^	std::hash<string> hashFunc;$/;"	m	class:Node
+nodeAddress	Node.h	/^	Address nodeAddress;$/;"	m	class:Node
+nodeHashCode	Node.h	/^	size_t nodeHashCode;$/;"	m	class:Node
+Params	Params.cpp	/^Params::Params(): PORTNUM(8001) {}$/;"	f	class:Params
+getcurrtime	Params.cpp	/^int Params::getcurrtime(){$/;"	f	class:Params
+setparams	Params.cpp	/^void Params::setparams(char *config_file) {$/;"	f	class:Params
+CREATE_TEST	Params.h	/^enum testTYPE { CREATE_TEST, READ_TEST, UPDATE_TEST, DELETE_TEST };$/;"	e	enum:testTYPE
+CRUDTEST	Params.h	/^	int CRUDTEST;$/;"	m	class:Params
+DELETE_TEST	Params.h	/^enum testTYPE { CREATE_TEST, READ_TEST, UPDATE_TEST, DELETE_TEST };$/;"	e	enum:testTYPE
+DROP_MSG	Params.h	/^	int DROP_MSG;$/;"	m	class:Params
+EN_GPSZ	Params.h	/^	int EN_GPSZ;			    \/\/ actual number of peers$/;"	m	class:Params
+MAX_MSG_SIZE	Params.h	/^	int MAX_MSG_SIZE;$/;"	m	class:Params
+MAX_NNB	Params.h	/^	int MAX_NNB;                \/\/ max number of neighbors$/;"	m	class:Params
+MSG_DROP_PROB	Params.h	/^	double MSG_DROP_PROB;		\/\/ message drop probability$/;"	m	class:Params
+PORTNUM	Params.h	/^	short PORTNUM;$/;"	m	class:Params
+Params	Params.h	/^class Params{$/;"	c
+READ_TEST	Params.h	/^enum testTYPE { CREATE_TEST, READ_TEST, UPDATE_TEST, DELETE_TEST };$/;"	e	enum:testTYPE
+SINGLE_FAILURE	Params.h	/^	int SINGLE_FAILURE;			\/\/ single\/multi failure$/;"	m	class:Params
+STEP_RATE	Params.h	/^	double STEP_RATE;		    \/\/ dictates the rate of insertion$/;"	m	class:Params
+UPDATE_TEST	Params.h	/^enum testTYPE { CREATE_TEST, READ_TEST, UPDATE_TEST, DELETE_TEST };$/;"	e	enum:testTYPE
+_PARAMS_H_	Params.h	8;"	d
+allNodesJoined	Params.h	/^	int allNodesJoined;$/;"	m	class:Params
+dropmsg	Params.h	/^	int dropmsg;$/;"	m	class:Params
+globaltime	Params.h	/^	int globaltime;$/;"	m	class:Params
+testTYPE	Params.h	/^enum testTYPE { CREATE_TEST, READ_TEST, UPDATE_TEST, DELETE_TEST };$/;"	g
+QUEUE_H_	Queue.h	8;"	d
+Queue	Queue.h	/^	Queue() {}$/;"	f	class:Queue
+Queue	Queue.h	/^class Queue {$/;"	c
+enqueue	Queue.h	/^	static bool enqueue(queue<q_elt> *queue, void *buffer, int size) {$/;"	f	class:Queue
+~Queue	Queue.h	/^	virtual ~Queue() {}$/;"	f	class:Queue
+funcEntry	Trace.cpp	/^int Trace::funcEntry(char *funcName) {$/;"	f	class:Trace
+funcExit	Trace.cpp	/^int Trace::funcExit(char *funcName, int f_rc) {$/;"	f	class:Trace
+printToTrace	Trace.cpp	/^int Trace::printToTrace(char *keyMsg, char *valueMsg) {$/;"	f	class:Trace
+traceFileClose	Trace.cpp	/^int Trace::traceFileClose() {$/;"	f	class:Trace
+traceFileCreate	Trace.cpp	/^int Trace::traceFileCreate() {$/;"	f	class:Trace
+LOG_FILE_LOCATION	Trace.h	15;"	d
+TRACE_H_	Trace.h	8;"	d
+Trace	Trace.h	/^class Trace {$/;"	c
+logF	Trace.h	/^	FILE *logF;$/;"	m	class:Trace
+COMMON_H_	common.h	2;"	d
+CREATE	common.h	/^enum MessageType {CREATE, READ, UPDATE, DELETE, REPLY, READREPLY};$/;"	e	enum:MessageType
+DELETE	common.h	/^enum MessageType {CREATE, READ, UPDATE, DELETE, REPLY, READREPLY};$/;"	e	enum:MessageType
+MessageType	common.h	/^enum MessageType {CREATE, READ, UPDATE, DELETE, REPLY, READREPLY};$/;"	g
+PRIMARY	common.h	/^enum ReplicaType {PRIMARY, SECONDARY, TERTIARY};$/;"	e	enum:ReplicaType
+READ	common.h	/^enum MessageType {CREATE, READ, UPDATE, DELETE, REPLY, READREPLY};$/;"	e	enum:MessageType
+READREPLY	common.h	/^enum MessageType {CREATE, READ, UPDATE, DELETE, REPLY, READREPLY};$/;"	e	enum:MessageType
+REPLY	common.h	/^enum MessageType {CREATE, READ, UPDATE, DELETE, REPLY, READREPLY};$/;"	e	enum:MessageType
+ReplicaType	common.h	/^enum ReplicaType {PRIMARY, SECONDARY, TERTIARY};$/;"	g
+SECONDARY	common.h	/^enum ReplicaType {PRIMARY, SECONDARY, TERTIARY};$/;"	e	enum:ReplicaType
+TERTIARY	common.h	/^enum ReplicaType {PRIMARY, SECONDARY, TERTIARY};$/;"	e	enum:ReplicaType
+UPDATE	common.h	/^enum MessageType {CREATE, READ, UPDATE, DELETE, REPLY, READREPLY};$/;"	e	enum:MessageType
+g_transID	common.h	/^static int g_transID = 0;$/;"	v
+DEBUGLOG	stdincludes.h	43;"	d
+FAILURE	stdincludes.h	14;"	d
+RING_SIZE	stdincludes.h	13;"	d
+STDCLLBKARGS	stdincludes.h	41;"	d
+STDCLLBKRET	stdincludes.h	42;"	d
+SUCCESS	stdincludes.h	15;"	d
+_STDINCLUDES_H_	stdincludes.h	8;"	d
+NullDevice	submit.py	/^class NullDevice:$/;"	c
+StringIO	submit.py	/^import StringIO$/;"	i
+URL	submit.py	/^URL = 'cloudcomputing2-001'$/;"	v
+URL_BASE	submit.py	/^URL_BASE = "https:\/\/class.coursera.org\/"$/;"	v
+basicPrompt	submit.py	/^def basicPrompt():$/;"	f
+challengeResponse	submit.py	/^def challengeResponse(email, passwd, challenge):$/;"	f
+challenge_url	submit.py	/^def challenge_url():$/;"	f
+email	submit.py	/^import email$/;"	i
+email	submit.py	/^import email.encoders$/;"	i
+email	submit.py	/^import email.message$/;"	i
+encoders	submit.py	/^import email.encoders$/;"	i
+getChallenge	submit.py	/^def getChallenge(email, sid):$/;"	f
+hashlib	submit.py	/^import hashlib$/;"	i
+loginPrompt	submit.py	/^def loginPrompt():$/;"	f
+message	submit.py	/^import email.message$/;"	i
+outFiles	submit.py	/^outFiles = ['dbg.log', 'dbg.log', 'dbg.log', 'dbg.log'] $/;"	v
+partFriendlyNames	submit.py	/^partFriendlyNames = ['Create Test', 'Delete Test', 'Read Test', 'Update Test'] $/;"	v
+partIds	submit.py	/^partIds = ['mp2_create', 'mp2_delete', 'mp2_read', 'mp2_update']$/;"	v
+partPrompt	submit.py	/^def partPrompt():$/;"	f
+random	submit.py	/^import random$/;"	i
+source	submit.py	/^def source(partIdx):$/;"	f
+submit	submit.py	/^def submit():   $/;"	f
+submitSolution	submit.py	/^def submitSolution(email_address, ch_resp, sid, output, state, ch_aux):$/;"	f
+submit_url	submit.py	/^def submit_url():$/;"	f
+subprocess	submit.py	/^import subprocess$/;"	i
+sys	submit.py	/^import sys$/;"	i
+urllib	submit.py	/^import urllib$/;"	i
+urllib2	submit.py	/^import urllib2$/;"	i
+write	submit.py	/^  def write(self, s):$/;"	m	class:NullDevice
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_PROGRAM_VERSION	5.8	//
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/

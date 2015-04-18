@@ -1,0 +1,364 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+ARGS_COUNT	.\Application.h	33;"	d
+Address	.\Member.cpp	/^Address::Address(const Address &anotherAddress) {$/;"	f	class:Address
+Address	.\Member.h	/^	Address() {}$/;"	f	class:Address
+Address	.\Member.h	/^	Address(string address) {$/;"	f	class:Address
+Address	.\Member.h	/^class Address {$/;"	c
+Application	.\Application.cpp	/^Application::Application(char *infile) {$/;"	f	class:Application
+Application	.\Application.h	/^class Application{$/;"	c
+COMMON_H_	.\common.h	2;"	d
+CREATE	.\common.h	/^enum MessageType {CREATE, READ, UPDATE, DELETE, REPLY, READREPLY};$/;"	e	enum:MessageType
+CREATE_TEST	.\Params.h	/^enum testTYPE { CREATE_TEST, READ_TEST, UPDATE_TEST, DELETE_TEST };$/;"	e	enum:testTYPE
+CRUDTEST	.\Params.h	/^	int CRUDTEST;$/;"	m	class:Params
+DBG_LOG	.\Log.h	20;"	d
+DEBUGLOG	.\stdincludes.h	43;"	d
+DELETE	.\common.h	/^enum MessageType {CREATE, READ, UPDATE, DELETE, REPLY, READREPLY};$/;"	e	enum:MessageType
+DELETE_TEST	.\Params.h	/^enum testTYPE { CREATE_TEST, READ_TEST, UPDATE_TEST, DELETE_TEST };$/;"	e	enum:testTYPE
+DROP_MSG	.\Params.h	/^	int DROP_MSG;$/;"	m	class:Params
+EM	.\EmulNet.h	/^	EM() {}$/;"	f	class:EM
+EM	.\EmulNet.h	/^class EM {$/;"	c
+ENBUFFSIZE	.\EmulNet.h	12;"	d
+EN_GPSZ	.\Params.h	/^	int EN_GPSZ;			    \/\/ actual number of peers$/;"	m	class:Params
+ENcleanup	.\EmulNet.cpp	/^int EmulNet::ENcleanup() {$/;"	f	class:EmulNet
+ENinit	.\EmulNet.cpp	/^void *EmulNet::ENinit(Address *myaddr, short port) {$/;"	f	class:EmulNet
+ENrecv	.\EmulNet.cpp	/^int EmulNet::ENrecv(Address *myaddr, int (* enq)(void *, char *, int), struct timeval *t, int times, void *queue){$/;"	f	class:EmulNet
+ENsend	.\EmulNet.cpp	/^int EmulNet::ENsend(Address *myaddr, Address *toaddr, char *data, int size) {$/;"	f	class:EmulNet
+ENsend	.\EmulNet.cpp	/^int EmulNet::ENsend(Address *myaddr, Address *toaddr, string data) {$/;"	f	class:EmulNet
+EmulNet	.\EmulNet.cpp	/^EmulNet::EmulNet(EmulNet &anotherEmulNet) {$/;"	f	class:EmulNet
+EmulNet	.\EmulNet.cpp	/^EmulNet::EmulNet(Params *p)$/;"	f	class:EmulNet
+EmulNet	.\EmulNet.h	/^class EmulNet$/;"	c
+Entry	.\Entry.cpp	/^Entry::Entry(string _value, int _timestamp, ReplicaType _replica){$/;"	f	class:Entry
+Entry	.\Entry.cpp	/^Entry::Entry(string entry){$/;"	f	class:Entry
+Entry	.\Entry.h	/^class Entry{$/;"	c
+FAILURE	.\stdincludes.h	14;"	d
+FIRST_FAIL_TIME	.\Application.h	38;"	d
+GOSSIP	.\MP1Node.h	/^    GOSSIP$/;"	e	enum:MsgTypes
+HASHTABLE_H_	.\HashTable.h	8;"	d
+HashTable	.\HashTable.cpp	/^HashTable::HashTable() {}$/;"	f	class:HashTable
+HashTable	.\HashTable.h	/^class HashTable {$/;"	c
+INSERT_TIME	.\Application.h	35;"	d
+JOINADDR	.\Application.h	/^	char JOINADDR[30];$/;"	m	class:Application
+JOINREP	.\MP1Node.h	/^    JOINREP,$/;"	e	enum:MsgTypes
+JOINREQ	.\MP1Node.h	/^    JOINREQ,$/;"	e	enum:MsgTypes
+KEY_LENGTH	.\Application.h	42;"	d
+LAST_FAIL_TIME	.\Application.h	39;"	d
+LOG	.\Log.cpp	/^void Log::LOG(Address *addr, const char * str, ...) {$/;"	f	class:Log
+LOG_FILE_LOCATION	.\Trace.h	15;"	d
+Log	.\Log.cpp	/^Log::Log(Params *p) {$/;"	f	class:Log
+Log	.\Log.cpp	/^Log::Log(const Log &anotherLog) {$/;"	f	class:Log
+Log	.\Log.h	/^class Log{$/;"	c
+MAGIC_NUMBER	.\Log.h	19;"	d
+MAXWRITES	.\Log.h	18;"	d
+MAX_MSG_SIZE	.\Params.h	/^	int MAX_MSG_SIZE;$/;"	m	class:Params
+MAX_NNB	.\Params.h	/^	int MAX_NNB;                \/\/ max number of neighbors$/;"	m	class:Params
+MAX_NODES	.\EmulNet.h	10;"	d
+MAX_TIME	.\EmulNet.h	11;"	d
+MEMBER_H_	.\Member.h	8;"	d
+MESSAGE_H_	.\Message.h	7;"	d
+MP1Node	.\MP1Node.cpp	/^MP1Node::MP1Node(Member *member, Params *params, EmulNet *emul, Log *log, Address *address) {$/;"	f	class:MP1Node
+MP1Node	.\MP1Node.h	/^class MP1Node {$/;"	c
+MP2NODE_H_	.\MP2Node.h	8;"	d
+MP2Node	.\MP2Node.cpp	/^MP2Node::MP2Node(Member *memberNode, Params *par, EmulNet * emulNet, Log * log, Address * address) {$/;"	f	class:MP2Node
+MP2Node	.\MP2Node.h	/^class MP2Node {$/;"	c
+MSG_DROP_PROB	.\Params.h	/^	double MSG_DROP_PROB;		\/\/ message drop probability$/;"	m	class:Params
+Member	.\Member.cpp	/^Member::Member(const Member &anotherMember) {$/;"	f	class:Member
+Member	.\Member.h	/^	Member(): inited(false), inGroup(false), bFailed(false), nnb(0), heartbeat(0), pingCounter(0), timeOutCounter(0) {}$/;"	f	class:Member
+Member	.\Member.h	/^class Member {$/;"	c
+MemberListEntry	.\Member.cpp	/^MemberListEntry::MemberListEntry(const MemberListEntry &anotherMLE) {$/;"	f	class:MemberListEntry
+MemberListEntry	.\Member.cpp	/^MemberListEntry::MemberListEntry(int id, short port): id(id), port(port) {}$/;"	f	class:MemberListEntry
+MemberListEntry	.\Member.cpp	/^MemberListEntry::MemberListEntry(int id, short port, long heartbeat, long timestamp): id(id), port(port), heartbeat(heartbeat), timestamp(timestamp) {}$/;"	f	class:MemberListEntry
+MemberListEntry	.\Member.h	/^	MemberListEntry(): id(0), port(0), heartbeat(0), timestamp(0) {}$/;"	f	class:MemberListEntry
+MemberListEntry	.\Member.h	/^class MemberListEntry {$/;"	c
+Message	.\Message.cpp	/^Message::Message(const Message& anotherMessage) {$/;"	f	class:Message
+Message	.\Message.cpp	/^Message::Message(int _transID, Address _fromAddr, MessageType _type, bool _success){$/;"	f	class:Message
+Message	.\Message.cpp	/^Message::Message(int _transID, Address _fromAddr, MessageType _type, string _key){$/;"	f	class:Message
+Message	.\Message.cpp	/^Message::Message(int _transID, Address _fromAddr, MessageType _type, string _key, string _value){$/;"	f	class:Message
+Message	.\Message.cpp	/^Message::Message(int _transID, Address _fromAddr, MessageType _type, string _key, string _value, ReplicaType _replica){$/;"	f	class:Message
+Message	.\Message.cpp	/^Message::Message(int _transID, Address _fromAddr, string _value){$/;"	f	class:Message
+Message	.\Message.cpp	/^Message::Message(string message){$/;"	f	class:Message
+Message	.\Message.h	/^class Message{$/;"	c
+MessageHdr	.\MP1Node.h	/^typedef struct MessageHdr {$/;"	s
+MessageHdr	.\MP1Node.h	/^}MessageHdr;$/;"	t	typeref:struct:MessageHdr
+MessageType	.\common.h	/^enum MessageType {CREATE, READ, UPDATE, DELETE, REPLY, READREPLY};$/;"	g
+MsgTypes	.\MP1Node.h	/^enum MsgTypes{$/;"	g
+NODE_H_	.\Node.h	8;"	d
+NULLADDR	.\MP1Node.h	/^	char NULLADDR[6];$/;"	m	class:MP1Node
+NUMBER_OF_INSERTS	.\Application.h	41;"	d
+Node	.\Node.cpp	/^Node::Node() {}$/;"	f	class:Node
+Node	.\Node.cpp	/^Node::Node(Address address) {$/;"	f	class:Node
+Node	.\Node.cpp	/^Node::Node(const Node& another) {$/;"	f	class:Node
+Node	.\Node.h	/^class Node {$/;"	c
+NullDevice	.\submit.py	/^class NullDevice:$/;"	c
+PORTNUM	.\Params.h	/^	short PORTNUM;$/;"	m	class:Params
+PRIMARY	.\common.h	/^enum ReplicaType {PRIMARY, SECONDARY, TERTIARY};$/;"	e	enum:ReplicaType
+Params	.\Params.cpp	/^Params::Params(): PORTNUM(8001) {}$/;"	f	class:Params
+Params	.\Params.h	/^class Params{$/;"	c
+QUEUE_H_	.\Queue.h	8;"	d
+Queue	.\Queue.h	/^	Queue() {}$/;"	f	class:Queue
+Queue	.\Queue.h	/^class Queue {$/;"	c
+READ	.\common.h	/^enum MessageType {CREATE, READ, UPDATE, DELETE, REPLY, READREPLY};$/;"	e	enum:MessageType
+READREPLY	.\common.h	/^enum MessageType {CREATE, READ, UPDATE, DELETE, REPLY, READREPLY};$/;"	e	enum:MessageType
+READ_TEST	.\Params.h	/^enum testTYPE { CREATE_TEST, READ_TEST, UPDATE_TEST, DELETE_TEST };$/;"	e	enum:testTYPE
+REPLY	.\common.h	/^enum MessageType {CREATE, READ, UPDATE, DELETE, REPLY, READREPLY};$/;"	e	enum:MessageType
+RF	.\Application.h	40;"	d
+RING_SIZE	.\stdincludes.h	13;"	d
+ReplicaType	.\common.h	/^enum ReplicaType {PRIMARY, SECONDARY, TERTIARY};$/;"	g
+SECONDARY	.\common.h	/^enum ReplicaType {PRIMARY, SECONDARY, TERTIARY};$/;"	e	enum:ReplicaType
+SINGLE_FAILURE	.\Params.h	/^	int SINGLE_FAILURE;			\/\/ single\/multi failure$/;"	m	class:Params
+STABILIZE_TIME	.\Application.h	37;"	d
+STATS_LOG	.\Log.h	21;"	d
+STDCLLBKARGS	.\stdincludes.h	41;"	d
+STDCLLBKRET	.\stdincludes.h	42;"	d
+STEP_RATE	.\Params.h	/^	double STEP_RATE;		    \/\/ dictates the rate of insertion$/;"	m	class:Params
+SUCCESS	.\stdincludes.h	15;"	d
+StringIO	.\submit.py	/^import StringIO$/;"	i
+TERTIARY	.\common.h	/^enum ReplicaType {PRIMARY, SECONDARY, TERTIARY};$/;"	e	enum:ReplicaType
+TEST_TIME	.\Application.h	36;"	d
+TFAIL	.\MP1Node.h	22;"	d
+TOTAL_RUNNING_TIME	.\Application.h	34;"	d
+TRACE_H_	.\Trace.h	8;"	d
+TREMOVE	.\MP1Node.h	21;"	d
+Trace	.\Trace.h	/^class Trace {$/;"	c
+UPDATE	.\common.h	/^enum MessageType {CREATE, READ, UPDATE, DELETE, REPLY, READREPLY};$/;"	e	enum:MessageType
+UPDATE_TEST	.\Params.h	/^enum testTYPE { CREATE_TEST, READ_TEST, UPDATE_TEST, DELETE_TEST };$/;"	e	enum:testTYPE
+URL	.\submit.py	/^URL = 'cloudcomputing2-001'$/;"	v
+URL_BASE	.\submit.py	/^URL_BASE = "https:\/\/class.coursera.org\/"$/;"	v
+_APPLICATION_H_	.\Application.h	8;"	d
+_EMULNET_H_	.\EmulNet.h	8;"	d
+_LOG_H_	.\Log.h	8;"	d
+_MP1NODE_H_	.\MP1Node.h	9;"	d
+_PARAMS_H_	.\Params.h	8;"	d
+_STDINCLUDES_H_	.\stdincludes.h	8;"	d
+addMemberEntry	.\MP1Node.cpp	/^void MP1Node::addMemberEntry(int id, short port, long heartbeat) {$/;"	f	class:MP1Node
+addr	.\Member.h	/^	Address addr;$/;"	m	class:Member
+addr	.\Member.h	/^	char addr[6];$/;"	m	class:Address
+allNodesJoined	.\Params.h	/^	int allNodesJoined;$/;"	m	class:Params
+alphanum	.\Application.h	/^static const char alphanum[] =$/;"	v
+bFailed	.\Member.h	/^	bool bFailed;$/;"	m	class:Member
+basicPrompt	.\submit.py	/^def basicPrompt():$/;"	f
+buff	.\EmulNet.h	/^	en_msg* buff[ENBUFFSIZE];$/;"	m	class:EM
+challengeResponse	.\submit.py	/^def challengeResponse(email, passwd, challenge):$/;"	f
+challenge_url	.\submit.py	/^def challenge_url():$/;"	f
+checkMessages	.\MP1Node.cpp	/^void MP1Node::checkMessages() {$/;"	f	class:MP1Node
+checkMessages	.\MP2Node.cpp	/^void MP2Node::checkMessages() {$/;"	f	class:MP2Node
+clear	.\HashTable.cpp	/^void HashTable::clear() {$/;"	f	class:HashTable
+clientCreate	.\MP2Node.cpp	/^void MP2Node::clientCreate(string key, string value) {$/;"	f	class:MP2Node
+clientDelete	.\MP2Node.cpp	/^void MP2Node::clientDelete(string key){$/;"	f	class:MP2Node
+clientRead	.\MP2Node.cpp	/^void MP2Node::clientRead(string key){$/;"	f	class:MP2Node
+clientUpdate	.\MP2Node.cpp	/^void MP2Node::clientUpdate(string key, string value){$/;"	f	class:MP2Node
+computeHashCode	.\Node.cpp	/^void Node::computeHashCode() {$/;"	f	class:Node
+contains	.\KVStoreGrader.sh	/^function contains () {$/;"	f
+convertToString	.\Entry.cpp	/^string Entry::convertToString() {$/;"	f	class:Entry
+count	.\HashTable.cpp	/^unsigned long HashTable::count(string key) {$/;"	f	class:HashTable
+create	.\HashTable.cpp	/^bool HashTable::create(string key, string value) {$/;"	f	class:HashTable
+createKeyValue	.\MP2Node.cpp	/^bool MP2Node::createKeyValue(string key, string value, ReplicaType replica) {$/;"	f	class:MP2Node
+currbuffsize	.\EmulNet.h	/^	int currbuffsize;$/;"	m	class:EM
+currentSize	.\HashTable.cpp	/^unsigned long HashTable::currentSize() {$/;"	f	class:HashTable
+deleteKey	.\HashTable.cpp	/^bool HashTable::deleteKey(string key) {$/;"	f	class:HashTable
+deleteTest	.\Application.cpp	/^void Application::deleteTest() {$/;"	f	class:Application
+deletekey	.\MP2Node.cpp	/^bool MP2Node::deletekey(string key) {$/;"	f	class:MP2Node
+delimiter	.\Entry.h	/^	string delimiter;$/;"	m	class:Entry
+delimiter	.\Message.h	/^	string delimiter;$/;"	m	class:Message
+dropmsg	.\Params.h	/^	int dropmsg;$/;"	m	class:Params
+elt	.\Member.h	/^	void *elt;$/;"	m	class:q_elt
+email	.\submit.py	/^import email$/;"	i
+email	.\submit.py	/^import email.encoders$/;"	i
+email	.\submit.py	/^import email.message$/;"	i
+emulNet	.\MP1Node.h	/^	EmulNet *emulNet;$/;"	m	class:MP1Node
+emulNet	.\MP2Node.h	/^	EmulNet * emulNet;$/;"	m	class:MP2Node
+emulnet	.\EmulNet.h	/^	EM emulnet;$/;"	m	class:EmulNet
+en	.\Application.h	/^	EmulNet *en;$/;"	m	class:Application
+en1	.\Application.h	/^	EmulNet *en1;$/;"	m	class:Application
+enInited	.\EmulNet.h	/^	int enInited;$/;"	m	class:EmulNet
+en_msg	.\EmulNet.h	/^typedef struct en_msg {$/;"	s
+en_msg	.\EmulNet.h	/^}en_msg;$/;"	t	typeref:struct:en_msg
+encoders	.\submit.py	/^import email.encoders$/;"	i
+enqueue	.\Queue.h	/^	static bool enqueue(queue<q_elt> *queue, void *buffer, int size) {$/;"	f	class:Queue
+enqueueWrapper	.\MP1Node.cpp	/^int MP1Node::enqueueWrapper(void *env, char *buff, int size) {$/;"	f	class:MP1Node
+enqueueWrapper	.\MP2Node.cpp	/^int MP2Node::enqueueWrapper(void *env, char *buff, int size) {$/;"	f	class:MP2Node
+fail	.\Application.cpp	/^void Application::fail() {$/;"	f	class:Application
+findARandomNodeThatIsAlive	.\Application.cpp	/^int Application::findARandomNodeThatIsAlive() {$/;"	f	class:Application
+findMemberEntry	.\MP1Node.cpp	/^bool MP1Node::findMemberEntry(int id, short port) {$/;"	f	class:MP1Node
+findNodes	.\MP2Node.cpp	/^vector<Node> MP2Node::findNodes(string key) {$/;"	f	class:MP2Node
+finishUpThisNode	.\MP1Node.cpp	/^int MP1Node::finishUpThisNode(){$/;"	f	class:MP1Node
+firstTime	.\Log.h	/^	bool firstTime;$/;"	m	class:Log
+firsteltindex	.\EmulNet.h	/^	int firsteltindex;$/;"	m	class:EM
+from	.\EmulNet.h	/^	Address from;$/;"	m	struct:en_msg
+fromAddr	.\Message.h	/^	Address fromAddr;$/;"	m	class:Message
+funcEntry	.\Trace.cpp	/^int Trace::funcEntry(char *funcName) {$/;"	f	class:Trace
+funcExit	.\Trace.cpp	/^int Trace::funcExit(char *funcName, int f_rc) {$/;"	f	class:Trace
+g_transID	.\common.h	/^static int g_transID = 0;$/;"	v
+getAddress	.\Member.h	/^	string getAddress() {$/;"	f	class:Address
+getAddress	.\Node.cpp	/^Address * Node::getAddress() {$/;"	f	class:Node
+getChallenge	.\submit.py	/^def getChallenge(email, sid):$/;"	f
+getCurrBuffSize	.\EmulNet.h	/^	int getCurrBuffSize() {$/;"	f	class:EM
+getFirstEltIndex	.\EmulNet.h	/^	int getFirstEltIndex() {$/;"	f	class:EM
+getHashCode	.\Node.cpp	/^size_t Node::getHashCode() {$/;"	f	class:Node
+getJoinAddress	.\MP1Node.cpp	/^Address MP1Node::getJoinAddress() {$/;"	f	class:MP1Node
+getMemberNode	.\MP1Node.h	/^	Member * getMemberNode() {$/;"	f	class:MP1Node
+getMemberNode	.\MP2Node.h	/^	Member * getMemberNode() {$/;"	f	class:MP2Node
+getMembershipList	.\MP2Node.cpp	/^vector<Node> MP2Node::getMembershipList() {$/;"	f	class:MP2Node
+getNextId	.\EmulNet.h	/^	int getNextId() {$/;"	f	class:EM
+getcurrtime	.\Params.cpp	/^int Params::getcurrtime(){$/;"	f	class:Params
+getheartbeat	.\Member.cpp	/^long MemberListEntry::getheartbeat() {$/;"	f	class:MemberListEntry
+getid	.\MP1Node.cpp	/^int MP1Node::getid(Address* addr) {$/;"	f	class:MP1Node
+getid	.\Member.cpp	/^int MemberListEntry::getid() {$/;"	f	class:MemberListEntry
+getjoinaddr	.\Application.cpp	/^Address Application::getjoinaddr(void){$/;"	f	class:Application
+getport	.\MP1Node.cpp	/^short MP1Node::getport(Address* addr) {$/;"	f	class:MP1Node
+getport	.\Member.cpp	/^short MemberListEntry::getport() {$/;"	f	class:MemberListEntry
+gettimestamp	.\Member.cpp	/^long MemberListEntry::gettimestamp() {$/;"	f	class:MemberListEntry
+globaltime	.\Params.h	/^	int globaltime;$/;"	m	class:Params
+handler	.\Application.cpp	/^void handler(int sig) {$/;"	f
+hasMyReplicas	.\MP2Node.h	/^	vector<Node> hasMyReplicas;$/;"	m	class:MP2Node
+hashFunc	.\Node.h	/^	std::hash<string> hashFunc;$/;"	m	class:Node
+hashFunction	.\MP2Node.cpp	/^size_t MP2Node::hashFunction(string key) {$/;"	f	class:MP2Node
+hashTable	.\HashTable.h	/^	map<string, string> hashTable;$/;"	m	class:HashTable
+hashlib	.\submit.py	/^import hashlib$/;"	i
+haveReplicasOf	.\MP2Node.h	/^	vector<Node> haveReplicasOf;$/;"	m	class:MP2Node
+heartbeat	.\Member.h	/^	long heartbeat;$/;"	m	class:Member
+heartbeat	.\Member.h	/^	long heartbeat;$/;"	m	class:MemberListEntry
+ht	.\MP2Node.h	/^	HashTable * ht;$/;"	m	class:MP2Node
+id	.\Member.h	/^	int id;$/;"	m	class:MemberListEntry
+inGroup	.\Member.h	/^	bool inGroup;$/;"	m	class:Member
+init	.\Member.h	/^	void init() {$/;"	f	class:Address
+initMemberListTable	.\MP1Node.cpp	/^void MP1Node::initMemberListTable(Member *memberNode) {$/;"	f	class:MP1Node
+initTestKVPairs	.\Application.cpp	/^void Application::initTestKVPairs() {$/;"	f	class:Application
+initThisNode	.\MP1Node.cpp	/^int MP1Node::initThisNode() {$/;"	f	class:MP1Node
+inited	.\Member.h	/^	bool inited;$/;"	m	class:Member
+insertTestKVPairs	.\Application.cpp	/^void Application::insertTestKVPairs() {$/;"	f	class:Application
+introduceSelfToGroup	.\MP1Node.cpp	/^int MP1Node::introduceSelfToGroup(Address *joinaddr) {$/;"	f	class:MP1Node
+isEmpty	.\HashTable.cpp	/^bool HashTable::isEmpty() {$/;"	f	class:HashTable
+isNullAddress	.\MP1Node.cpp	/^int MP1Node::isNullAddress(Address *addr) {$/;"	f	class:MP1Node
+key	.\Message.h	/^	string key;$/;"	m	class:Message
+log	.\Application.h	/^    Log *log;$/;"	m	class:Application
+log	.\MP1Node.h	/^	Log *log;$/;"	m	class:MP1Node
+log	.\MP2Node.h	/^	Log * log;$/;"	m	class:MP2Node
+logCreateFail	.\Log.cpp	/^void Log::logCreateFail(Address * address, bool isCoordinator, int transID, string key, string value){$/;"	f	class:Log
+logCreateSuccess	.\Log.cpp	/^void Log::logCreateSuccess(Address * address, bool isCoordinator, int transID, string key, string value){$/;"	f	class:Log
+logDeleteFail	.\Log.cpp	/^void Log::logDeleteFail(Address * address, bool isCoordinator, int transID, string key){$/;"	f	class:Log
+logDeleteSuccess	.\Log.cpp	/^void Log::logDeleteSuccess(Address * address, bool isCoordinator, int transID, string key){$/;"	f	class:Log
+logF	.\Trace.h	/^	FILE *logF;$/;"	m	class:Trace
+logNodeAdd	.\Log.cpp	/^void Log::logNodeAdd(Address *thisNode, Address *addedAddr) {$/;"	f	class:Log
+logNodeRemove	.\Log.cpp	/^void Log::logNodeRemove(Address *thisNode, Address *removedAddr) {$/;"	f	class:Log
+logReadFail	.\Log.cpp	/^void Log::logReadFail(Address * address, bool isCoordinator, int transID, string key){$/;"	f	class:Log
+logReadSuccess	.\Log.cpp	/^void Log::logReadSuccess(Address * address, bool isCoordinator, int transID, string key, string value){$/;"	f	class:Log
+logUpdateFail	.\Log.cpp	/^void Log::logUpdateFail(Address * address, bool isCoordinator, int transID, string key, string newValue){$/;"	f	class:Log
+logUpdateSuccess	.\Log.cpp	/^void Log::logUpdateSuccess(Address * address, bool isCoordinator, int transID, string key, string newValue){$/;"	f	class:Log
+loginPrompt	.\submit.py	/^def loginPrompt():$/;"	f
+main	.\Application.cpp	/^int main(int argc, char *argv[]) {$/;"	f
+makeAddress	.\MP1Node.cpp	/^void MP1Node::makeAddress(Address* addr, int id, short port) {$/;"	f	class:MP1Node
+memberList	.\Member.h	/^	vector<MemberListEntry> memberList;$/;"	m	class:Member
+memberNode	.\MP1Node.h	/^	Member *memberNode;$/;"	m	class:MP1Node
+memberNode	.\MP2Node.h	/^	Member *memberNode;$/;"	m	class:MP2Node
+message	.\submit.py	/^import email.message$/;"	i
+mp1	.\Application.h	/^	MP1Node **mp1;$/;"	m	class:Application
+mp1Run	.\Application.cpp	/^void Application::mp1Run() {$/;"	f	class:Application
+mp1q	.\Member.h	/^	queue<q_elt> mp1q;$/;"	m	class:Member
+mp2	.\Application.h	/^	MP2Node **mp2;$/;"	m	class:Application
+mp2Run	.\Application.cpp	/^void Application::mp2Run() {$/;"	f	class:Application
+mp2q	.\Member.h	/^	queue<q_elt> mp2q;$/;"	m	class:Member
+msgType	.\MP1Node.h	/^	enum MsgTypes msgType;$/;"	m	struct:MessageHdr	typeref:enum:MessageHdr::MsgTypes
+myPos	.\Member.h	/^	vector<MemberListEntry>::iterator myPos;$/;"	m	class:Member
+nextid	.\EmulNet.h	/^	int nextid;$/;"	m	class:EM
+nnb	.\Member.h	/^	int nnb;$/;"	m	class:Member
+nodeAddress	.\Node.h	/^	Address nodeAddress;$/;"	m	class:Node
+nodeCount	.\Application.h	/^int nodeCount = 0;$/;"	v
+nodeHashCode	.\Node.h	/^	size_t nodeHashCode;$/;"	m	class:Node
+nodeLoop	.\MP1Node.cpp	/^void MP1Node::nodeLoop() {$/;"	f	class:MP1Node
+nodeLoopOps	.\MP1Node.cpp	/^void MP1Node::nodeLoopOps() {$/;"	f	class:MP1Node
+nodeStart	.\MP1Node.cpp	/^void MP1Node::nodeStart(char *servaddrstr, short servport) {$/;"	f	class:MP1Node
+operator <	.\Node.cpp	/^bool Node::operator < (const Node& another) const {$/;"	f	class:Node
+operator =	.\EmulNet.cpp	/^EmulNet& EmulNet::operator =(EmulNet &anotherEmulNet) {$/;"	f	class:EmulNet
+operator =	.\EmulNet.h	/^	EM& operator = (EM &anotherEM) {$/;"	f	class:EM
+operator =	.\Log.cpp	/^Log& Log::operator = (const Log& anotherLog) {$/;"	f	class:Log
+operator =	.\Member.cpp	/^Address& Address::operator =(const Address& anotherAddress) {$/;"	f	class:Address
+operator =	.\Member.cpp	/^Member& Member::operator =(const Member& anotherMember) {$/;"	f	class:Member
+operator =	.\Member.cpp	/^MemberListEntry& MemberListEntry::operator =(const MemberListEntry &anotherMLE) {$/;"	f	class:MemberListEntry
+operator =	.\Message.cpp	/^Message& Message::operator =(const Message& anotherMessage) {$/;"	f	class:Message
+operator =	.\Node.cpp	/^Node& Node::operator=(const Node& another) {$/;"	f	class:Node
+operator ==	.\Member.cpp	/^bool Address::operator ==(const Address& anotherAddress) {$/;"	f	class:Address
+outFiles	.\submit.py	/^outFiles = ['dbg.log', 'dbg.log', 'dbg.log', 'dbg.log'] $/;"	v
+par	.\Application.h	/^	Params *par;$/;"	m	class:Application
+par	.\EmulNet.h	/^	Params* par;$/;"	m	class:EmulNet
+par	.\Log.h	/^	Params *par;$/;"	m	class:Log
+par	.\MP1Node.h	/^	Params *par;$/;"	m	class:MP1Node
+par	.\MP2Node.h	/^	Params *par;$/;"	m	class:MP2Node
+partFriendlyNames	.\submit.py	/^partFriendlyNames = ['Create Test', 'Delete Test', 'Read Test', 'Update Test'] $/;"	v
+partIds	.\submit.py	/^partIds = ['mp2_create', 'mp2_delete', 'mp2_read', 'mp2_update']$/;"	v
+partPrompt	.\submit.py	/^def partPrompt():$/;"	f
+pingCounter	.\Member.h	/^	int pingCounter;$/;"	m	class:Member
+port	.\Member.h	/^	short port;$/;"	m	class:MemberListEntry
+printAddress	.\MP1Node.cpp	/^void MP1Node::printAddress(Address *addr)$/;"	f	class:MP1Node
+printToTrace	.\Trace.cpp	/^int Trace::printToTrace(char *keyMsg, char *valueMsg) {$/;"	f	class:Trace
+q_elt	.\Member.cpp	/^q_elt::q_elt(void *elt, int size): elt(elt), size(size) {}$/;"	f	class:q_elt
+q_elt	.\Member.h	/^class q_elt {$/;"	c
+random	.\submit.py	/^import random$/;"	i
+read	.\HashTable.cpp	/^string HashTable::read(string key) {$/;"	f	class:HashTable
+readKey	.\MP2Node.cpp	/^string MP2Node::readKey(string key) {$/;"	f	class:MP2Node
+readTest	.\Application.cpp	/^void Application::readTest() {$/;"	f	class:Application
+recvCallBack	.\MP1Node.cpp	/^bool MP1Node::recvCallBack(void *env, char *data, int size ) {$/;"	f	class:MP1Node
+recvLoop	.\MP1Node.cpp	/^int MP1Node::recvLoop() {$/;"	f	class:MP1Node
+recvLoop	.\MP2Node.cpp	/^bool MP2Node::recvLoop() {$/;"	f	class:MP2Node
+recv_msgs	.\EmulNet.h	/^	int recv_msgs[MAX_NODES + 1][MAX_TIME];$/;"	m	class:EmulNet
+replica	.\Entry.h	/^	ReplicaType replica;$/;"	m	class:Entry
+replica	.\Message.h	/^	ReplicaType replica;$/;"	m	class:Message
+ring	.\MP2Node.h	/^	vector<Node> ring;$/;"	m	class:MP2Node
+run	.\Application.cpp	/^int Application::run()$/;"	f	class:Application
+sendMemberList	.\MP1Node.cpp	/^void MP1Node::sendMemberList(Address* addr, MsgTypes msgtype)$/;"	f	class:MP1Node
+sent_msgs	.\EmulNet.h	/^	int sent_msgs[MAX_NODES + 1][MAX_TIME];$/;"	m	class:EmulNet
+setAddress	.\Node.cpp	/^void Node::setAddress(Address address) {$/;"	f	class:Node
+setFirstEltIndex	.\EmulNet.h	/^	void setFirstEltIndex(int firsteltindex) {$/;"	f	class:EM
+setHashCode	.\Node.cpp	/^void Node::setHashCode(size_t hashCode) {$/;"	f	class:Node
+setNextId	.\EmulNet.h	/^	void setNextId(int nextid) {$/;"	f	class:EM
+setheartbeat	.\Member.cpp	/^void MemberListEntry::setheartbeat(long hearbeat) {$/;"	f	class:MemberListEntry
+setid	.\Member.cpp	/^void MemberListEntry::setid(int id) {$/;"	f	class:MemberListEntry
+setparams	.\Params.cpp	/^void Params::setparams(char *config_file) {$/;"	f	class:Params
+setport	.\Member.cpp	/^void MemberListEntry::setport(short port) {$/;"	f	class:MemberListEntry
+settCurrBuffSize	.\EmulNet.h	/^	void settCurrBuffSize(int currbuffsize) {$/;"	f	class:EM
+settimestamp	.\Member.cpp	/^void MemberListEntry::settimestamp(long timestamp) {$/;"	f	class:MemberListEntry
+size	.\EmulNet.h	/^	int size;$/;"	m	struct:en_msg
+size	.\Member.h	/^	int size;$/;"	m	class:q_elt
+source	.\submit.py	/^def source(partIdx):$/;"	f
+stabilizationProtocol	.\MP2Node.cpp	/^void MP2Node::stabilizationProtocol() {$/;"	f	class:MP2Node
+submit	.\submit.py	/^def submit():   $/;"	f
+submitSolution	.\submit.py	/^def submitSolution(email_address, ch_resp, sid, output, state, ch_aux):$/;"	f
+submit_url	.\submit.py	/^def submit_url():$/;"	f
+subprocess	.\submit.py	/^import subprocess$/;"	i
+success	.\Message.h	/^	bool success; \/\/ success or not $/;"	m	class:Message
+sys	.\submit.py	/^import sys$/;"	i
+testKVPairs	.\Application.h	/^	map<string, string> testKVPairs;$/;"	m	class:Application
+testTYPE	.\Params.h	/^enum testTYPE { CREATE_TEST, READ_TEST, UPDATE_TEST, DELETE_TEST };$/;"	g
+timeOutCounter	.\Member.h	/^	int timeOutCounter;$/;"	m	class:Member
+timestamp	.\Entry.h	/^	int timestamp;$/;"	m	class:Entry
+timestamp	.\Member.h	/^	long timestamp;$/;"	m	class:MemberListEntry
+to	.\EmulNet.h	/^	Address to;$/;"	m	struct:en_msg
+toString	.\Message.cpp	/^string Message::toString(){$/;"	f	class:Message
+traceFileClose	.\Trace.cpp	/^int Trace::traceFileClose() {$/;"	f	class:Trace
+traceFileCreate	.\Trace.cpp	/^int Trace::traceFileCreate() {$/;"	f	class:Trace
+transID	.\Message.h	/^	int transID;$/;"	m	class:Message
+type	.\Message.h	/^	MessageType type;$/;"	m	class:Message
+update	.\HashTable.cpp	/^bool HashTable::update(string key, string newValue) {$/;"	f	class:HashTable
+updateKeyValue	.\MP2Node.cpp	/^bool MP2Node::updateKeyValue(string key, string value, ReplicaType replica) {$/;"	f	class:MP2Node
+updateMemberEntry	.\MP1Node.cpp	/^void MP1Node::updateMemberEntry(int id, short port, long heartbeat) {$/;"	f	class:MP1Node
+updateRing	.\MP2Node.cpp	/^void MP2Node::updateRing() {$/;"	f	class:MP2Node
+updateTest	.\Application.cpp	/^void Application::updateTest() {$/;"	f	class:Application
+urllib	.\submit.py	/^import urllib$/;"	i
+urllib2	.\submit.py	/^import urllib2$/;"	i
+value	.\Entry.h	/^	string value;$/;"	m	class:Entry
+value	.\Message.h	/^	string value;$/;"	m	class:Message
+write	.\submit.py	/^  def write(self, s):$/;"	m	class:NullDevice
+~Application	.\Application.cpp	/^Application::~Application() {$/;"	f	class:Application
+~EM	.\EmulNet.h	/^	virtual ~EM() {}$/;"	f	class:EM
+~EmulNet	.\EmulNet.cpp	/^EmulNet::~EmulNet() {}$/;"	f	class:EmulNet
+~HashTable	.\HashTable.cpp	/^HashTable::~HashTable() {}$/;"	f	class:HashTable
+~Log	.\Log.cpp	/^Log::~Log() {}$/;"	f	class:Log
+~MP1Node	.\MP1Node.cpp	/^MP1Node::~MP1Node() {}$/;"	f	class:MP1Node
+~MP2Node	.\MP2Node.cpp	/^MP2Node::~MP2Node() {$/;"	f	class:MP2Node
+~Member	.\Member.h	/^	virtual ~Member() {}$/;"	f	class:Member
+~Node	.\Node.cpp	/^Node::~Node() {}$/;"	f	class:Node
+~Queue	.\Queue.h	/^	virtual ~Queue() {}$/;"	f	class:Queue

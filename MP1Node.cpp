@@ -143,7 +143,7 @@ int MP1Node::introduceSelfToGroup(Address *joinaddr) {
         sprintf(s, "Trying to join...");
         log->LOG(&memberNode->addr, s);
 #endif
-        fprintf(stderr, "before send req\n");
+        //fprintf(stderr, "before send req\n");
         // send JOINREQ message to introducer member
         emulNet->ENsend(&memberNode->addr, joinaddr, (char *)msg, msgsize);
 

@@ -23,7 +23,7 @@ public:
 	string value;
 	Address fromAddr;
 	int transID;
-	bool success; // success or not 
+	bool success; // success or not
 	// delimiter
 	string delimiter;
 	// construct a message from a string
