@@ -154,7 +154,7 @@ void MP2Node::clientRead(string key){
 	 * Implement this
 	 */
 	Message msg = Message(g_transID, memberNode->addr, READ, key);
-	buff.push_back(Transaction(g_transID, READ, key));
+	buffRead.push_back(ReadTransaction(g_transID, key));
 	g_transID += 1;
 	vector<Node> replica = findNodes(key);
 	for (vector<Node>::iterator it = replica.begin(); it != replica.end(); ++it) {
@@ -336,8 +336,8 @@ void MP2Node::checkMessages() {
 			case READ:
 			{
 				string ret = readKey(recv_msg.key);
-				if ("" == ret)
-					log->logReadSuccess(&memberNode->addr, false, recv_msg.transID, recv_msg.key, recv_msg.value);
+				if ("" != ret)
+					log->logReadSuccess(&memberNode->addr, false, recv_msg.transID, recv_msg.key, ret);
 				else
 					log->logReadFail(&memberNode->addr, false, recv_msg.transID, recv_msg.key);
 				//send read reply
@@ -373,13 +373,13 @@ void MP2Node::checkMessages() {
 			}
 			case READREPLY:
 			{
-				for (list<Transaction>::iterator it = buff.begin(); it != buff.end(); ++it) {
+				for (list<ReadTransaction>::iterator it = buffRead.begin(); it != buffRead.end(); ++it) {
 					if (it->transID_ == recv_msg.transID) {
-						if (it->isStart())
+						if (it->isStart()) {
 							it->startCount();
-						if (recv_msg.success) {
-							it->increCount();
 						}
+						it->increCount();
+						it->pushValue(recv_msg.value);
 						break;
 					}
 				}
@@ -392,6 +392,30 @@ void MP2Node::checkMessages() {
 	 * This function should also ensure all READ and UPDATE operation
 	 * get QUORUM replies
 	 */
+	for (list<ReadTransaction>::iterator it = buffRead.begin(); it != buffRead.end(); ) {
+		if (it->count_ == -1) {
+			it++;
+		} else if (it->count_ >= QUORUM) {
+			//case READ
+			int max = 0;
+			string ret;
+			for (auto i = it->values_.begin(); i != it->values_.end(); ++i) {
+				if (i->second > max)
+					ret = i->first;
+				//TODO for two euqal max
+				//else if (i->second == max) {
+				//	log->logReadFail(&memberNode->addr, true, it->transID_, it->key_);
+				//}
+			}
+			log->logReadSuccess(&memberNode->addr, true, it->transID_, it->key_, ret);
+			it = buffRead.erase(it);
+		} else { //if (it->count_ < QUORUM)
+			//case READ
+			log->logReadFail(&memberNode->addr, true, it->transID_, it->key_);
+			it = buffRead.erase(it);
+		}
+	}
+
 	for (list<Transaction>::iterator it = buff.begin(); it != buff.end(); ) {
 		if (it->count_ == -1) {
 			it++;
@@ -402,9 +426,6 @@ void MP2Node::checkMessages() {
 					break;
 				case UPDATE:
 					log->logUpdateSuccess(&memberNode->addr, true, it->transID_, it->key_, it->value_);
-					break;
-				case READ:
-					log->logReadSuccess(&memberNode->addr, true, it->transID_, it->key_, it->value_);
 					break;
 				case DELETE:
 					log->logDeleteSuccess(&memberNode->addr, true, it->transID_, it->key_);
@@ -421,9 +442,6 @@ void MP2Node::checkMessages() {
 					break;
 				case UPDATE:
 					log->logUpdateFail(&memberNode->addr, true, it->transID_, it->key_, it->value_);
-					break;
-				case READ:
-					log->logReadFail(&memberNode->addr, true, it->transID_, it->key_);
 					break;
 				case DELETE:
 					log->logDeleteFail(&memberNode->addr, true, it->transID_, it->key_);

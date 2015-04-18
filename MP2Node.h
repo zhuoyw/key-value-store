@@ -42,6 +42,37 @@ public:
 	}
 };
 
+class ReadTransaction {
+public:
+	int transID_;
+	int count_;
+	MessageType type_;//TODO: is it necessaray?
+	string key_;
+	vector< pair<string, int> > values_;
+	ReadTransaction(int transID, string key) : transID_(transID), count_(-1), key_(key) {
+	}
+	void increCount() {
+		count_ += 1;
+	}
+	void startCount() {
+		count_ = 0;
+	}
+	bool isStart() {
+		return -1 == count_;
+	}
+	void pushValue(string value) {
+		for (auto it = values_.begin(); it != values_.end(); ++it) {
+			if (it->first == value)
+			{
+				it->second += 1;
+				return;
+			}
+		}
+		values_.push_back(make_pair(value, 1));
+		return;
+	}
+};
+
 /**
  * CLASS NAME: MP2Node
  *
@@ -72,6 +103,8 @@ private:
 	Log * log;
 	// buff for
 	list<Transaction> buff;
+	// read buff
+	list<ReadTransaction> buffRead;
 
 public:
 	MP2Node(Member *memberNode, Params *par, EmulNet *emulNet, Log *log, Address *addressOfMember);
