@@ -31,12 +31,9 @@ def submit():
 
   login = 'zhuoyw@live.cn'
   password = 'cd4FjbqhNT'
-
   if not login:
     print '!! Submission Cancelled'
     return
-
-
 
   print '\n== Connecting to Coursera ... '
 

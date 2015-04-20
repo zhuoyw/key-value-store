@@ -25,7 +25,32 @@ MP2Node::~MP2Node() {
 	delete ht;
 	delete memberNode;
 }
+/*
+bool changeRing() {
+	if (curMemList.size() != ring.size()) {
+		return
+		for (size_t i = 0; i < ring.size(); ++i) {
+			if (curMemList[i].nodeHashCode != ring[i].nodeHashCode) {
 
+			}
+		}
+	}
+}
+*/
+
+bool MP2Node::equalRing(vector<Node>& x, vector<Node>& y) {
+	if (x.size() != y.size()) {
+		return false;
+	} else {
+
+		for (size_t i = 0; i < x.size(); ++i) {
+			if (x[i].nodeHashCode != y[i].nodeHashCode)
+				return false;
+		}
+
+	}
+	return true;
+}
 /**
  * FUNCTION NAME: updateRing
  *
@@ -52,12 +77,13 @@ void MP2Node::updateRing() {
 	 */
 	// Sort the list based on the hashCode
 	sort(curMemList.begin(), curMemList.end());
-	//if (curMemList != ring)
-	{
+
+	//else ring remians the same
+	if (!equalRing(curMemList, ring)) {
 		change = true;
 		ring = curMemList;
+		//hasMyReplicas = findNodes();
 	}
-	//else ring remians the same
 
 	/*
 	 * Step 3: Run the stabilization protocol IF REQUIRED
@@ -378,9 +404,11 @@ void MP2Node::checkMessages() {
 						if (it->isStart()) {
 							it->startCount();
 						}
-						it->increCount();
-						it->pushValue(recv_msg.value);
-						break;
+						if (recv_msg.value != "") {
+							it->increCount();
+							it->pushValue(recv_msg.value);
+							break;
+						}
 					}
 				}
 				break;
@@ -523,5 +551,9 @@ void MP2Node::stabilizationProtocol() {
 	/*
 	 * Implement this
 	 */
+	log->LOG(&memberNode->addr, "stabilizationProtocol");
+	for (auto it = ht->hashTable.begin(); it != ht->hashTable.end(); ++it) {
+		clientCreate(it->first, it->second);
+	}
 	return;
 }

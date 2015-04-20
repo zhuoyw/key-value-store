@@ -143,6 +143,7 @@ public:
 	bool updateKeyValue(string key, string value, ReplicaType replica);
 	bool deletekey(string key);
 
+	bool equalRing(vector<Node>& x, vector<Node>& y);
 	// stabilization protocol - handle multiple failures
 	void stabilizationProtocol();
 
